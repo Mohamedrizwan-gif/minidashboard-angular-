@@ -1,0 +1,48 @@
+<mat-card>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-icon matPrefix>person</mat-icon>
+            <input type="text" matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-icon matPrefix>email</mat-icon>
+            <input type="email" matInput placeholder="Email" formControlName="email"/>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-icon matPrefix>person_outline</mat-icon>
+            <input type="text" matInput placeholder="Username" formControlName="username"/>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-icon matPrefix>lock_outline</mat-icon>
+            <input type="password" matInput placeholder="Password" formControlName="password"/>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-icon matPrefix>lock_outline</mat-icon>
+            <input type="text" matInput placeholder="Confirm Password" formControlName="cnfmpassword">
+        </mat-form-field>
+        <div class="file-form-field">
+            <mat-label><b>Profile picture:</b></mat-label>&nbsp;
+            <input type="file" placeholder="Profile Picture" formControlName="profilepic" (change)="onAddFile($event)"/>
+        </div>
+        <mat-radio-group formControlName="gender">
+            <mat-label><b>Gender:</b></mat-label>&nbsp;
+            <mat-radio-button *ngFor="let gender of genders" [value]="gender">
+                {{gender}}&nbsp;
+            </mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field>
+            <mat-label>Education</mat-label>
+            <mat-select formControlName="education">
+                <mat-option *ngFor="let education of educations" [value]="education">{{education}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <section class="hobbysection" [formGroup]="toppings">
+            <mat-label><b>Hobbies</b></mat-label>
+            <div>
+                <mat-checkbox formControlName="{{hobby.name}}" *ngFor="let hobby of hobbies">{{hobby.name}}</mat-checkbox>
+            </div>
+        </section>
+        <br/>
+        <button type="submit" mat-raised-button color="primary">Register</button>
+    </form>
+</mat-card>

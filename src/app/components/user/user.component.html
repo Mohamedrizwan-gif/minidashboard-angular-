@@ -1,0 +1,29 @@
+<mat-card class="mat-elevation-z6">
+    <h3 style="font-family: cursive;" *ngIf="totalusers">Total users: {{totalusers}}</h3>
+    <div class="user">
+        <img [src]="loginuser?.profilepic" class="profile-img mat-elevation-z5">
+        <div class="profile">
+            <div><b>Name:</b> {{loginuser?.name}}</div>
+            <div><b>Email:</b> {{loginuser?.email}}</div>
+            <div><b>Gender:</b> {{loginuser?.gender}}</div>
+            <div><b>Education:</b> {{loginuser?.education}}</div>
+            <div>
+                <b>Hobbies:</b>
+                <ul *ngFor="let hobby of loginuser?.hobbies">
+                    <li>{{hobby}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+
+    </div>
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input [(ngModel)]="password" matInput type="text"/>
+    </mat-form-field>
+    <div class="btn-pwd">
+        <button (click)="onChangepwd()" mat-raised-button>Change Password</button>
+    </div>
+    <button color="warn" mat-flat-button (click)="onSignout()">Sign out</button>
+</mat-card>

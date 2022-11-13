@@ -1,0 +1,30 @@
+:host {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 10px;
+}
+
+.mat-form-field {
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+}
+
+.file-form-field {
+    margin: 10px 0;
+}
+
+.hobbysection {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 60px;
+}
+
+.hobbysection .mat-checkbox {
+    margin: 0 10px;
+}
