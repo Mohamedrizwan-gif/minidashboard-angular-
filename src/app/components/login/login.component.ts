@@ -17,6 +17,10 @@ export class LoginComponent implements OnInit {
       'email': new FormControl(null, [Validators.required]),
       'password': new FormControl(null, [Validators.required])
     });
+    const lnuser = localStorage.getItem('loginuser');
+    if(lnuser !== null) {
+      this.router.navigate(['user']);
+    }
   }
 
   onsubmit(): void {
@@ -31,7 +35,7 @@ export class LoginComponent implements OnInit {
     }
     if (dbusers !== null) {
       let users = JSON.parse(dbusers);
-      const checkemail = users.filter((user: any) => user.email === 'email');
+      const checkemail = users.filter((user: any) => user.email === email);
       const checkusername = users.filter((user: any) => user.username === email);
       const checkpassword = users.filter((user: any) => user.password === password);
       if(checkemail.length === 0) {

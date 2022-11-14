@@ -17,6 +17,9 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     const lnuser = localStorage.getItem('loginuser');
     const dbusers = localStorage.getItem('dbusers');
+    if(lnuser === null) {
+      this.router.navigate(['login']);
+    }
     this.loginuser = JSON.parse(lnuser ? lnuser : '');
     const parseddbusers = JSON.parse(dbusers ? dbusers : '');
     const users = parseddbusers.filter((users: User) => users.username.toLowerCase() !== 'admin');
